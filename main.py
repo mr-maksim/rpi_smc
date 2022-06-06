@@ -12,10 +12,12 @@ GPIO.setup(DIR, GPIO.OUT)
 GPIO.setup(ENA, GPIO.OUT)
 
 
-def step(step, dir, speed=0.0000001):
+def step(step, dir, speed=0.1):
     GPIO.output(ENA, GPIO.HIGH)
     # sleep(.5)
-    GPIO.output(DIR, GPIO.LOW)
+    if dir:
+        GPIO.output(DIR, GPIO.LOW)
+    else:GPIO.output(DIR, GPIO.HIGH)
     for x in range(step):
         GPIO.output(PUL, GPIO.HIGH)
         sleep(speed)
@@ -29,7 +31,8 @@ def step(step, dir, speed=0.0000001):
 def main():
     istep = int(input('Input step:\n'))
     idir = bool(input('Input dir (1/0):\n'))
-    step(istep, idir)
+    ispeed = float(input('Input dir (1/0):\n'))
+    step(istep, idir,ispeed)
 
 
 if __name__ == '__main__':
