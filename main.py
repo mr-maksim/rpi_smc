@@ -13,8 +13,9 @@ GPIO.setup(ENA, GPIO.OUT)
 
 
 def step(step, dir, speed=0.1):
+    if speed <= 0:
+        speed = 0.1
     GPIO.output(ENA, GPIO.HIGH)
-    # sleep(.5)
     if dir:
         GPIO.output(DIR, GPIO.LOW)
     else:GPIO.output(DIR, GPIO.HIGH)
@@ -31,7 +32,7 @@ def step(step, dir, speed=0.1):
 def main():
     istep = int(input('Input step:\n'))
     idir = bool(input('Input dir (1/0):\n'))
-    ispeed = float(input('Input dir (1/0):\n'))
+    ispeed = float(input('Input speed (1/0):\n'))
     step(istep, idir,ispeed)
 
 
