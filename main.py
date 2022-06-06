@@ -1,6 +1,7 @@
 
 from time import sleep
 import RPi.GPIO as GPIO
+from tqdm import tqdm
 
 PUL = 17
 DIR = 27
@@ -19,7 +20,7 @@ def step(step, dir, speed=0.1):
     if dir:
         GPIO.output(DIR, GPIO.LOW)
     else:GPIO.output(DIR, GPIO.HIGH)
-    for x in range(step):
+    for x in tqdm(range(step)):
         GPIO.output(PUL, GPIO.HIGH)
         sleep(speed)
         GPIO.output(PUL, GPIO.LOW)
