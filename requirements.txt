@@ -1,2 +1,16 @@
+autopep8==1.6.0
+certifi==2022.5.18.1
+charset-normalizer==2.0.12
+docutils==0.18.1
+idna==3.3
+Kivy==2.1.0
+Kivy-Garden==0.1.5
+kivymd==0.104.2
+Pillow==9.1.1
+pycodestyle==2.8.0
+Pygments==2.12.0
+requests==2.27.1
 RPi.GPIO==0.7.1
+toml==0.10.2
 tqdm==4.64.0
+urllib3==1.26.9
