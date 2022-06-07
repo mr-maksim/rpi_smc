@@ -1,40 +1,27 @@
+from kivymd.app import MDApp
+from kivy.lang import Builder
+from kivy.uix.screenmanager import Screen, ScreenManager
 from time import sleep
 import RPi.GPIO as GPIO
-from tqdm import tqdm
-
-PUL = 17
-DIR = 27
-ENA = 22
-
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(PUL, GPIO.OUT)
-GPIO.setup(DIR, GPIO.OUT)
-GPIO.setup(ENA, GPIO.OUT)
 
 
-def step(step, dir, speed=0.0001):
-    if speed <= 0:
-        speed = 0.1
-    GPIO.output(ENA, GPIO.HIGH)
-    if dir:
-        GPIO.output(DIR, GPIO.LOW)
-    else:GPIO.output(DIR, GPIO.HIGH)
-    for x in tqdm(range(step)):
-        GPIO.output(PUL, GPIO.HIGH)
-        sleep(speed)
-        GPIO.output(PUL, GPIO.LOW)
-        sleep(speed)
-    GPIO.output(ENA, GPIO.LOW)
-    sleep(.5)
-    return
+class Main_Screen(Screen):
+    def left(self):
+        step(5000, 0)
 
 
-def main():
-    istep = int(input('Input step:\n'))
-    idir = bool(input('Input dir (1/0):\n'))
-    ispeed = float(input('Input speed (>0.0001):\n'))
-    step(istep, idir,ispeed)
+class Screen_2(Screen):
+    pass
+
+
+class ScrM(ScreenManager):
+    pass
+
+
+class RPI_SMCApp (MDApp):
+    def build(self):
+        return Builder.load_file('rpi_smc.kv')
 
 
 if __name__ == '__main__':
-    main()
+    RPI_SMCApp().run()

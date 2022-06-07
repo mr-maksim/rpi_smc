@@ -1,0 +1,54 @@
+ScrM:
+    Main_Screen: 
+    Screen_2: 
+
+<Main_Screen>:
+    name:'main'
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title: 'RPI_SMC HOME'
+        MDLabel:
+            text: 'Главный экран'  
+            halign: 'center'
+        MDRaisedButton:
+            text: 'Вперед'
+            pos_hint: {'center_x': .5, 'center_y': .5} 
+            on_release:
+                app.root.current = 'second'
+                root.manager.transition. direction = 'left'
+        MDRaisedButton:
+            text: 'Step'
+            pos_hint: {'center_x': .5, 'center_y': .5} 
+            on_release: root.left()
+<Screen_2>:
+    name: 'second'
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            title: 'Settings'
+        MDBoxLayout:
+            orientation: 'horizontal'
+            MDBoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text:"1"
+                    color: 0,0,0,0
+                Label:
+                    text:"2"
+                    color: 0,0,0,0
+            MDBoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text:"3"
+                    color: 0,0,0,0
+                Label:
+                    text:"4"
+                    color: 0,0,0,0
+        MDRaisedButton:
+            text: 'Назад'
+            pos_hint: {'center_x': .5, 'center_y': .5} 
+            on_release:
+                app.root.current = 'main'
+                root.manager.transition. direction = 'right'
+   
