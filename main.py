@@ -7,7 +7,7 @@ import RPi.GPIO as GPIO
 
 class Main_Screen(Screen):
     def left(self):
-        step(5000, 0)
+        pass
 
 
 class Screen_2(Screen):
