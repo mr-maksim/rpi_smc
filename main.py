@@ -32,7 +32,7 @@ def step(step, dir, speed=0.0001):
 def main():
     istep = int(input('Input step:\n'))
     idir = bool(input('Input dir (1/0):\n'))
-    ispeed = float(input('Input speed (1/0):\n'))
+    ispeed = float(input('Input speed (>0.0001):\n'))
     step(istep, idir,ispeed)
 
 
